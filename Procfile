@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -jar target/*.jar --server.port=$PORT --spring.jpa.database=POSTGRESQL --spring.datasource.driverClassName=org.postgresql.Driver --spring.datasource.url --spring.datasource.username= --spring.datasource.password
+web: java $JAVA_OPTS -jar target/*.jar --server.port=$PORT --spring.jpa.database=POSTGRESQL --spring.datasource.driverClassName=org.postgresql.Driver --spring.datasource.url --spring.datasource.username --spring.datasource.password
