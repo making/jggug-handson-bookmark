@@ -16,7 +16,7 @@
             <id>heroku</id>
             <activation>
                 <property>
-                    <name>DATABASE_URL</name>
+                    <name>env.DYNO</name>
                 </property>
             </activation>
             <dependencies>
