@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -jar target/*.jar --server.port=$PORT
+web: java $JAVA_OPTS -jar target/*.jar --server.port=$PORT --spring.jpa.database=POSTGRESQL
