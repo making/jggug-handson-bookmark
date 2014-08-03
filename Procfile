@@ -1,2 +1,1 @@
-web: java $JAVA_OPTS -jar target/*.jar --server.port=$PORT --spring.jpa.database=POSTGRESQL --spring.jpa.hibernate.ddl-auto=create-drop
-# --spring.datasource.driverClassName --spring.datasource.url --spring.datasource.username --spring.datasource.password
+web: java $JAVA_OPTS -jar target/*.jar --server.port=$PORT --spring.jpa.database=POSTGRESQL --spring.jpa.hibernate.ddl-auto=create-drop --spring.datasource.driverClassName --spring.datasource.url --spring.datasource.username --spring.datasource.password
