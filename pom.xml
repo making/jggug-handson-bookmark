@@ -91,8 +91,7 @@
                         </goals>
                         <configuration>
                             <target>
-                                <property environment="env"/>
-                                <echoproperties/>
+                                <echo message="DYNO=${env.DYNO}"></echo>
                             </target>
                         </configuration>
                     </execution>
@@ -100,6 +99,7 @@
             </plugin>
         </plugins>
     </build>
+
     <properties>
         <java.version>1.8</java.version>
     </properties>
