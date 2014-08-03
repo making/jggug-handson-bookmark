@@ -30,34 +30,28 @@ public class AppConfig {
     @ConfigurationProperties(prefix = DataSourceAutoConfiguration.CONFIGURATION_PREFIX)
     @Bean(destroyMethod = "close")
     DataSource realDataSource() throws URISyntaxException {
-
+        String url;
+        String username;
+        String password;
 
         String databaseUrl = System.getenv("DATABASE_URL");
         if (databaseUrl != null) {
             URI dbUri = new URI(databaseUrl);
-            String url = "jdbc:postgresql://" + dbUri.getHost() + dbUri.getPath() + ":" + dbUri.getPort() + dbUri.getPath();
-            String username = dbUri.getUserInfo().split(":")[0];
-            String password = dbUri.getUserInfo().split(":")[1];
-            org.apache.tomcat.jdbc.pool.DataSource ds = new org.apache.tomcat.jdbc.pool.DataSource();
-            ds.setUrl(url);
-            ds.setUsername(username);
-            ds.setPassword(password);
-            ds.setDriverClassName("org.postgresql.Driver");
-            ds.setMaxActive(100);
-            ds.setMaxIdle(100);
-            ds.setMinIdle(0);
-            ds.setInitialSize(0);
-            ds.setMaxWait(30000);
-            this.dataSource = ds;
+            url = "jdbc:postgresql://" + dbUri.getHost() + dbUri.getPath() + ":" + dbUri.getPort() + dbUri.getPath();
+            username = dbUri.getUserInfo().split(":")[0];
+            password = dbUri.getUserInfo().split(":")[1];
         } else {
-            DataSourceBuilder factory = DataSourceBuilder
-                    .create(this.properties.getClassLoader())
-                    .url(this.properties.getUrl())
-                    .username(this.properties.getUsername())
-                    .password(this.properties.getPassword());
-            this.dataSource = factory.build();
+            url = this.properties.getUrl();
+            username = this.properties.getUsername();
+            password = this.properties.getPassword();
         }
-        System.out.println(this.dataSource);
+
+        DataSourceBuilder factory = DataSourceBuilder
+                .create(this.properties.getClassLoader())
+                .url(url)
+                .username(username)
+                .password(password);
+        this.dataSource = factory.build();
         return this.dataSource;
     }
 
