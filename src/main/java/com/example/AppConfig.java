@@ -45,7 +45,7 @@ public class AppConfig {
             username = this.properties.getUsername();
             password = this.properties.getPassword();
         }
-
+        System.out.println(this.properties);
         System.out.println(url);
         System.out.println(username);
         System.out.println(password);
@@ -56,6 +56,7 @@ public class AppConfig {
                 .username(username)
                 .password(password);
         this.dataSource = factory.build();
+        System.out.println(this.dataSource);
         return this.dataSource;
     }
 
