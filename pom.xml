@@ -19,9 +19,15 @@
                     <name>env.DYNO</name>
                 </property>
             </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>postgresql</groupId>
+                    <artifactId>postgresql</artifactId>
+                    <version>9.1-901-1.jdbc4</version>
+                </dependency>
+            </dependencies>
             <build>
                 <plugins>
-
                     <plugin>
                         <artifactId>maven-antrun-plugin</artifactId>
                         <executions>
@@ -68,10 +74,10 @@
                 </plugins>
             </build>
             <!--<dependencies>-->
-                <!--<dependency>-->
-                    <!--<groupId>com.h2database</groupId>-->
-                    <!--<artifactId>h2</artifactId>-->
-                <!--</dependency>-->
+            <!--<dependency>-->
+            <!--<groupId>com.h2database</groupId>-->
+            <!--<artifactId>h2</artifactId>-->
+            <!--</dependency>-->
             <!--</dependencies>-->
         </profile>
     </profiles>
@@ -101,11 +107,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>9.1-901-1.jdbc4</version>
         </dependency>
     </dependencies>
     <build>
