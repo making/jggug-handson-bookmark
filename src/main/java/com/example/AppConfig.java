@@ -48,6 +48,7 @@ public class AppConfig {
             ds.setMinIdle(0);
             ds.setInitialSize(0);
             ds.setMaxWait(30000);
+            this.dataSource = ds;
         } else {
             DataSourceBuilder factory = DataSourceBuilder
                     .create(this.properties.getClassLoader())
